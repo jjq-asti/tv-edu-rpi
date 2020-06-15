@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RURAL EDUCATION</title>
+</head>
+<body onload="fetchQuestion1()">
+
+    <div class="card">
+      <div class="container">
+        <p class="student_number_label">STUDENT NUMBER:</p><input type="text" class="student_number" name="studentID">
+      </div>
+    </div>
+
+    <div class="card">
+      <!-- <div class="question">
+      <h1><b>Question 1</b></h1>
+        <p>On his last night in Manila, Rizal rode about the city and its suburbs. He was accompanied by ___________.</p>
+      </div> -->
+      <div class="question">
+      <div class="question-text">
+        <h3 id="question">Which is the closest planet to the sun?</h3>
+        <p>Choose 1 answer</p>
+        <hr />
+      
+        <div id='block-11' style='padding: 10px;'>
+          <label for='option-11' style=' padding: 5px; font-size: 2.5rem;'>
+            <input type='radio' name='option' value='0' id='option-11' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' onclick="displayAnswer1()" />
+            <span id="option-label-11"></span></label>
+          <span id='result-11'></span>
+        </div>
+        <hr />
+      
+        <div id='block-12' style='padding: 10px;'>
+          <label for='option-12' style=' padding: 5px; font-size: 2.5rem;'>
+            <input type='radio' name='option' value='1' id='option-12' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' onclick="displayAnswer1()" />
+            <span id="option-label-12"></span></label>
+          <span id='result-12'></span>
+        </div>
+        <hr />
+      
+        <div id='block-13' style='padding: 10px;'>
+          <label for='option-13' style=' padding: 5px; font-size: 2.5rem;'>
+            <input type='radio' name='option' value='2' id='option-13' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' onclick="displayAnswer1()" />
+            <span id="option-label-13"></span></label>
+          <span id='result-13'></span>
+        </div>
+        <hr />
+      
+        <div id='block-14' style='padding: 10px;'>
+          <label for='option-14' style=' padding: 5px; font-size: 2.5rem;'>
+            <input type='radio' name='option' value='3' id='option-14' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;' onclick="displayAnswer1()" />
+            <span id="option-label-14"></span></label>
+          <span id='result-14'></span>
+        </div>
+        <hr />
+        <button class="navigation-button" onclick="fetchPrevQuestion()" id="prev" type='button'>Prev</button>
+        <button class="navigation-button next" onclick="fetchNextQuestion()" id="next" type='button'>Next</button>
+        <button class="submit_btn" onclick="submit()" id="submit" type='button'>Submit</button>
+        
+        <!-- onclick='displayAnswer1()' -->
+      </div>
+      <!-- <a id='showanswer1'></a> -->
+
+      </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="handleform.js"></script>
+</html>
