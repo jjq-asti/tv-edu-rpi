@@ -206,7 +206,7 @@ function submit(){
     a3 = document.getElementById(q3_current).value
     console.log(a1,a2,a3)
 }
-eel.expose(incrementSelectionCounter);
+
 function incrementSelectionCounter(){
     if (selectionCounter > 1){
         --selectionCounter;
@@ -214,7 +214,7 @@ function incrementSelectionCounter(){
     }
 
 }
-eel.expose(decrementSelectionCounter);
+
 function decrementSelectionCounter(){
     if (selectionCounter < 4){
         ++selectionCounter;
@@ -222,4 +222,15 @@ function decrementSelectionCounter(){
 
     }
 
+}
+
+eel.expose(getKeyPressed)
+function getKeyPressed(key){
+    if ( key === "key_asterisk" ){
+        document.getElementById("studentID").focus();
+    }else if ( key === "key_up" ){
+        incrementSelectionCounter();
+    }else if ( key === "key_down" ) {
+        decrementSelectionCounter();
+    }
 }
