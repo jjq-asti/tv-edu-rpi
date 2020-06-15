@@ -223,12 +223,21 @@ function decrementSelectionCounter(){
     }
 
 }
+var mode = null;
 
 eel.expose(getKeyPressed)
 function getKeyPressed(key){
     if ( key === "key_asterisk" ){
+        mode = "INPUT_ID";
         document.getElementById("studentID").focus();
-    }else if ( key === "key_up" ){
+    }
+
+    if ( mode === "INPUT_ID" ){
+        if ( !(isNaN(parseInt(key.slice(-1)))) ){
+            el = document.getElementById("studentID");
+            el.value = el.value + key.slice(-1);
+        }
+    } else if ( key === "key_up" ){
         incrementSelectionCounter();
     }else if ( key === "key_down" ) {
         decrementSelectionCounter();
