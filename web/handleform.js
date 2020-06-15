@@ -1,7 +1,7 @@
 //    The function evaluates the answer and displays result
 
 var counter = 1;
-var selectionCounter = 0;
+var selectionCounter = 4;
 const choices = ['option-11','option-12','option-13','option-14']
  function displayAnswer1() {
   if (document.getElementById('option-11').checked) {
@@ -206,19 +206,19 @@ function submit(){
     a3 = document.getElementById(q3_current).value
     console.log(a1,a2,a3)
 }
-eel.expose(incrementCounter);
+eel.expose(incrementSelectionCounter);
 function incrementSelectionCounter(){
-    if (selectionCounter < 4){
-        ++selectionCounter;
-        document.getElementById(choices[selectionCounter]).checked = true;
+    if (selectionCounter > 1){
+        --selectionCounter;
+        document.getElementById(choices[selectionCounter-1]).checked = true;
     }
 
 }
-eel.expose(decrementCounter);
+eel.expose(decrementSelectionCounter);
 function decrementSelectionCounter(){
-    if (selectionCounter > 1){
-        --selectionCounter;
-        document.getElementById(choices[selectionCounter]).checked = true;
+    if (selectionCounter < 4){
+        ++selectionCounter;
+        document.getElementById(choices[selectionCounter-1]).checked = true;
 
     }
 
