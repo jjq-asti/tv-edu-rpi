@@ -11,24 +11,26 @@
   
   /* Add some padding inside the card container */
   .container {
-    padding: 2px 16px;
+    /* padding: 2px 16px; */
     display: inline-block;
+    margin-top: 0px;
   }
 
   .question {
-    padding: 2px 16px;
-    margin-top: 10px;
+    /* padding: 2px 16px; */
+    margin-top: 0px;
   }
 
   .student_number{
-    height: 20%; 
+    height: 3.2vmin; 
     text-align: center;
   }
 
   .student_number_label {
-    font-size: 30px; 
+    font-size: 3.2vmin; 
     display: inline-block; 
     margin-right: 5px;
+    margin-left: 5px;
   }
 
   .navigation-button {
@@ -45,9 +47,13 @@
     transform: scale(0.65); 
     position: relative; 
     top: -100px;
+    font-size: 3.2vw;
   }
   .next {
     float: right;
+  }
+  .studen_number_value{
+    display:none;
   }
   .submit_btn{
     width: 140px; 
@@ -60,6 +66,6 @@
     margin: auto;
     margin-top: 20px;
   }
-  h1{
-    font-size: 3.2vw;
-  }
+  /* h1{
+    font-size: 3.2vmin;
+  } */

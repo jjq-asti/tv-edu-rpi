@@ -228,8 +228,19 @@ var mode = null;
 eel.expose(getKeyPressed)
 function getKeyPressed(key){
     if ( key === "key_asterisk" ){
-        mode = "INPUT_ID";
-        document.getElementById("studentID").focus();
+        if ( mode !== "INPUT_ID"){
+            mode = "INPUT_ID";
+            document.getElementById("studentID").style.display = "inline"
+            document.getElementById("studentID").focus();
+            document.getElementById("studen_number_value").style.display = "none"
+        }else{
+            mode = "QUESTIONS"
+            var sid = document.getElementById("studentID")
+            sid.style.display = "none"
+            var sn =document.getElementById("studen_number_value")
+            sn.innerHTML = sid.value
+            sn.style.display = "inline"
+        }
     }
 
     if ( mode === "INPUT_ID" ){
