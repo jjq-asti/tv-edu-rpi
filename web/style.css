@@ -11,61 +11,59 @@
   
   /* Add some padding inside the card container */
   .container {
-    /* padding: 2px 16px; */
-    display: inline-block;
-    margin-top: 0px;
+    padding: 2px 16px;
   }
 
   .question {
-    /* padding: 2px 16px; */
-    margin-top: 0px;
+    padding: 2px 16px;
   }
 
   .student_number{
     height: 3.2vmin; 
     text-align: center;
+    display:inline-block;
+    padding:2px;
+    margin-bottom:5px;
   }
 
   .student_number_label {
     font-size: 3.2vmin; 
-    display: inline-block; 
+    display: inline; 
     margin-right: 5px;
     margin-left: 5px;
   }
 
   .navigation-button {
-    width: 100px; 
-    height: 100px; 
     border-radius: 3px; 
-    background-color: lightblue; 
-    font-size: 30px;
+    background-color: blue; 
+    color: white;
+    font-size: 3.2vmax;
     display: inline-block;
     font-weight: 700;
     margin: auto;
   }
   .question-text{
-    transform: scale(0.65); 
-    position: relative; 
-    top: -100px;
-    font-size: 3.2vw;
+    font-size: 3.2vmax;
   }
   .next {
     float: right;
   }
-  .studen_number_value{
+  #studen_number_value{
     display:none;
   }
   .submit_btn{
-    width: 140px; 
-    height: 100px; 
     border-radius: 3px; 
-    background-color: lightblue; 
-    font-size: 30px;
+    background-color: blue; 
+    color: white;
+    font-size: 3.2vmax;
     display: none;
     font-weight: 700;
     margin: auto;
     margin-top: 20px;
   }
+  .options{
+    font-size: 3.2vmax;
+    }
   /* h1{
     font-size: 3.2vmin;
   } */
