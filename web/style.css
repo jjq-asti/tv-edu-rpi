@@ -18,19 +18,19 @@
     padding: 2px 16px;
   }
 
-  .student_number{
-    height: 3.2vmin; 
+  .student_number_input{
+    font-size: 12pt;
     text-align: center;
-    display:inline-block;
-    padding:2px;
-    margin-bottom:5px;
+    display:None;
+    margin-bottom:2px;
   }
 
   .student_number_label {
-    font-size: 3.2vmin; 
+    transform: scale(0.6);
     display: inline; 
+    color: grey;
     margin-right: 5px;
-    margin-left: 5px;
+    margin-left: 2px;
   }
 
   .navigation-button {
@@ -45,21 +45,24 @@
   .question-text{
     font-size: 3.2vmax;
   }
-  .next {
-    float: right;
+  .prev {
   }
-  #studen_number_value{
-    display:none;
+  .next {
+	 float:right;
+  }
+
+  #student_number_value{
+    display:inline;
+    color: white;
   }
   .submit_btn{
+    margin:auto;
     border-radius: 3px; 
-    background-color: blue; 
+    background-color: green; 
     color: white;
-    font-size: 3.2vmax;
+    font-size: 3.2vmin;
     display: none;
     font-weight: 700;
-    margin: auto;
-    margin-top: 20px;
   }
   .options{
     font-size: 3.2vmax;

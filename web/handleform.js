@@ -1,7 +1,7 @@
 //    The function evaluates the answer and displays result
 
 var counter = 1;
-var selectionCounter = 4;
+var selectionCounter = [0,0,0];
 const choices = ['option-11','option-12','option-13','option-14']
  function displayAnswer1() {
   if (document.getElementById('option-11').checked) {
@@ -60,7 +60,7 @@ const choices = ['option-11','option-12','option-13','option-14']
     }
   }
   if (q1_current !== 0 && q2_current !== 0 && q3_current !== 0){
-    document.getElementById("submit").style.display = "block";
+    document.getElementById("submit").style.display = "inline-block";
 }
 }
 
@@ -207,18 +207,20 @@ function submit(){
     console.log(a1,a2,a3)
 }
 
-function incrementSelectionCounter(){
-    if (selectionCounter > 1){
-        --selectionCounter;
-        document.getElementById(choices[selectionCounter-1]).checked = true;
+function incrementSelectionCounter(counter){
+    if (selectionCounter[counter] > 1){
+        --selectionCounter[counter];
+	console.log(selectionCounter[counter])
+        document.getElementById(choices[selectionCounter[counter]-1]).checked = true;
     }
 
 }
 
-function decrementSelectionCounter(){
-    if (selectionCounter < 4){
-        ++selectionCounter;
-        document.getElementById(choices[selectionCounter-1]).checked = true;
+function decrementSelectionCounter(counter){
+    if (selectionCounter[counter] < 4){
+        ++selectionCounter[counter];
+	console.log(selectionCounter[counter])
+        document.getElementById(choices[selectionCounter[counter]-1]).checked = true;
 
     }
 
@@ -227,30 +229,44 @@ var mode = null;
 
 eel.expose(getKeyPressed)
 function getKeyPressed(key){
+    console.log(key);
     if ( key === "key_asterisk" ){
         if ( mode !== "INPUT_ID"){
             mode = "INPUT_ID";
             document.getElementById("studentID").style.display = "inline"
             document.getElementById("studentID").focus();
-            document.getElementById("studen_number_value").style.display = "none"
+            document.getElementById("student_number_value").style.display = "none"
         }else{
             mode = "QUESTIONS"
             var sid = document.getElementById("studentID")
+	    var val = sid.value;
             sid.style.display = "none"
-            var sn =document.getElementById("studen_number_value")
-            sn.innerHTML = sid.value
+            var sn =document.getElementById("student_number_value")
+	    if (val.length === 0) {
+		   val = "Press * on your remote." 
+	    }
+            sn.innerHTML = val;
             sn.style.display = "inline"
         }
     }
 
-    if ( mode === "INPUT_ID" ){
+
+    if ( key === "key_up" ){
+        incrementSelectionCounter(counter-1);
+	displayAnswer1();
+    }else if ( key === "key_down" ) {
+        decrementSelectionCounter(counter-1);
+	displayAnswer1();
+    }else if ( key === "key_right" ) {
+	fetchNextQuestion();
+    }else if ( key === "key_left" ) {
+	fetchPrevQuestion();
+    }else if ( mode === "INPUT_ID" ){
         if ( !(isNaN(parseInt(key.slice(-1)))) ){
             el = document.getElementById("studentID");
+	    if (el.value.length < 12){
             el.value = el.value + key.slice(-1);
+	    }
         }
-    } else if ( key === "key_up" ){
-        incrementSelectionCounter();
-    }else if ( key === "key_down" ) {
-        decrementSelectionCounter();
     }
 }

@@ -9,12 +9,16 @@
 </head>
 <body onload="fetchQuestion1()">
 
-    <div class="card">
+    <div class="card" style="background-color:darkred;">
       <div class="container">
-        <p class="student_number_label">STUDENT NUMBER:</p>
-        <p id="studen_number_value"></p>
-        <input type="text" class="student_number" id="studentID">
-       
+        <p class="student_number_label">Student Number:</p>
+        <p id="student_number_value">Press * on your remote.</p>
+        <input type="text" class="student_number_input" id="studentID">
+	<div style="float:right">
+	<p style="display:inline;color:grey;">Division:<span style="color:white;margin-left:2px;margin-right:5px;font-weight:900;">IV-A</span></p> 
+	<p style="display:inline;color:grey;">District:<span style="color:white;margin-left:2px;margin-right:5px;font-weight:900;" >San Roque</span></p> 
+	<p style="display:inline;color:grey;">Grade Level:<span style="color:white;margin-left:2px;margin-right:5px;font-weight:900;">Five</span></p> 
+	</div>
       </div>
     </div>
 
@@ -60,10 +64,11 @@
           <span id='result-14'></span>
         </div>
         <hr />
-        <button class="navigation-button" onclick="fetchPrevQuestion()" id="prev" type='button'>Prev</button>
-        <button class="navigation-button next" onclick="fetchNextQuestion()" id="next" type='button'>Next</button>
+	<div style="background-color:red;">
+        <button class="navigation-button prev" onclick="fetchPrevQuestion()" id="prev" type='button'>Prev</button>
         <button class="submit_btn" onclick="submit()" id="submit" type='button'>Submit</button>
-        
+        <button class="navigation-button next" onclick="fetchNextQuestion()" id="next" type='button'>Next</button>
+	</div> 
         <!-- onclick='displayAnswer1()' -->
       </div>
       <!-- <a id='showanswer1'></a> -->
