@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="/eel.js"></script>
+    <!-- <script type="text/javascript" src="/eel.js"></script> -->
     <title>RURAL EDUCATION</title>
 </head>
 <body onload="fetchQuestion1()">
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick="hide_modal(); return false">&times;</span>
+      <p id="modal_message"></p>
+    </div>
+  
+  </div>
 
     <div class="card" style="background-color:darkred;">
       <div class="container">
@@ -15,9 +24,9 @@
         <p id="student_number_value">Press * on your remote.</p>
         <input type="text" class="student_number_input" id="studentID">
 	<div style="float:right">
-	<p style="display:inline;color:grey;">Division:<span style="color:white;margin-left:2px;margin-right:5px;font-weight:900;">IV-A</span></p> 
-	<p style="display:inline;color:grey;">District:<span style="color:white;margin-left:2px;margin-right:5px;font-weight:900;" >San Roque</span></p> 
-	<p style="display:inline;color:grey;">Grade Level:<span style="color:white;margin-left:2px;margin-right:5px;font-weight:900;">Five</span></p> 
+	<p class="top-labels">Division:<span class="student-details">IV-A</span></p> 
+	<p class="top-labels">District:<span class="student-details" >San Roque</span></p> 
+	<p class="top-labels">Grade Level:<span class="student-details">Five</span></p> 
 	</div>
       </div>
     </div>
@@ -64,10 +73,11 @@
           <span id='result-14'></span>
         </div>
         <hr />
-	<div style="background-color:red;">
+	<div style="background-color: yellow;">
         <button class="navigation-button prev" onclick="fetchPrevQuestion()" id="prev" type='button'>Prev</button>
-        <button class="submit_btn" onclick="submit()" id="submit" type='button'>Submit</button>
+        <p style="display:inline;margin-left: 35%;"><span id="completed">0</span>/3</p>
         <button class="navigation-button next" onclick="fetchNextQuestion()" id="next" type='button'>Next</button>
+        <button class="submit_btn" onclick="submit()" id="submit" type='button'>Submit</button>
 	</div> 
         <!-- onclick='displayAnswer1()' -->
       </div>
