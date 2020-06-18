@@ -113,8 +113,9 @@ var q2_prev = 0;
 var question3 = "Which is the hottest planet in the solar system?"
 var q3_choices = ["Mercury", "Venus", "Earth", "Mars"]
 var q3_correct = "Venus"
-var q3_current = 0
+var q3_current = 0;
 var q3_prev = 0;
+var confirmed = false;
 
 function fetchQuestion1(){
     sub_btn = document.getElementById("submit");
@@ -226,13 +227,23 @@ function submit(){
     var details = document.getElementsByClassName("student-details")
     var stn = document.getElementById("student_number_value")
     var modal_message = document.getElementById("modal_message")
-    if (isNaN(parseInt(stn))){
+    if (isNaN(parseInt(stn.innerHTML))){
         modal_message.innerHTML = "Student Number Missing!"
-       
+    	modal.style.display = "block";
+    }else if (!confirmed){
+	confirmed = true;
+        modal_message.innerHTML = "Please verify your answer before proceeding. Press # to go back. Press ok to submit."
+    	modal.style.display = "block";
     }else{
-        modal_message.innerHTML = "Please verify your answer before proceding."
+	    confirmed = false;
+	    span.innerHTML = "&#10004"
+	    modal_message.innerHTML = "Submitted!"
+	    modal.style.display = "block"
+	    setTimeout(()=>{
+		    modal.style.display = "none";
+	    },3000);
     }
-    modal.style.display = "block";
+
     
     console.log(a1,a2,a3,details[0].innerHTML,stn.innerHTML)
 }
@@ -261,6 +272,8 @@ eel.expose(getKeyPressed)
 function getKeyPressed(key){
     console.log(key);
     if ( key === "key_asterisk" ){
+	confirmed = false;
+  	modal.style.display = "none";
         if ( mode !== "INPUT_ID"){
             mode = "INPUT_ID";
             document.getElementById("studentID").style.display = "inline"
@@ -291,8 +304,10 @@ function getKeyPressed(key){
 	fetchNextQuestion();
     }else if ( key === "key_left" ) {
 	fetchPrevQuestion();
-    }else if (key === "ok") {
-    submit();
+    }else if (key === "key_ok") {
+        submit();
+    }else if (key === "key_pound"){
+        hide_modal();
     }else if ( mode === "INPUT_ID" ){
         if ( !(isNaN(parseInt(key.slice(-1)))) ){
             el = document.getElementById("studentID");
@@ -316,6 +331,10 @@ btn.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 function hide_modal() {
   console.log("closing")
+  modal.style.display = "none";
+}
+
+function confirm_submit(){
   modal.style.display = "none";
 }
 

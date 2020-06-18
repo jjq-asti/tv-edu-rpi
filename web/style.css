@@ -59,7 +59,7 @@
   }
   .submit_btn{
     position: absolute;
-    right: 0px;
+    right: 10px;
     border-radius: 3px; 
     background-color: green; 
     color: white;

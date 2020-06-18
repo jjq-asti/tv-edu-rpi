@@ -8,6 +8,7 @@ def getIrKeyPress():
     code = lirc.nextcode()
     if len(code) > 0:
         code = code[0]
+        print(code)
         eel.getKeyPressed(code)
 
 #eel.spawn(getIrKeyPress)
