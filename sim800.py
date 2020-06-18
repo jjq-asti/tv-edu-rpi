@@ -31,14 +31,3 @@ class sim800USB(serial.Serial):
             resp_list.append(i.strip('\r\n'))
         del generator
         return resp_list
-
-
-
-
-if __name__ == "__main__":
-    sms = sim800USB()
-    sms.sendMessage("testing","+639176356924")
-    # ret = sms.sendAtCommand("AT+CMGS=\"+639176356924\"")
-    print(sms.isOpen())
-    sms.close()
-    print(sms.isOpen())
