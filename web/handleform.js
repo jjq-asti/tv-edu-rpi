@@ -118,6 +118,7 @@ var q3_prev = 0;
 var confirmed = false;
 
 function fetchQuestion1(){
+
     sub_btn = document.getElementById("submit");
     sub_btn.disabled = true;
     q_element = document.getElementById("question")
@@ -219,12 +220,14 @@ function fetchPrevQuestion(){
 
 }
 
-
-function submit(){
+async function submit(){
     var a1 = document.getElementById(q1_current).value
     var a2 = document.getElementById(q2_current).value
     var a3 = document.getElementById(q3_current).value
     var details = document.getElementsByClassName("student-details")
+    var d1 = details[0].innerText;
+    var d2 = details[1].innerText
+    var d3 = details[2].innerText;
     var stn = document.getElementById("student_number_value")
     var modal_message = document.getElementById("modal_message")
     if (isNaN(parseInt(stn.innerHTML))){
@@ -236,16 +239,16 @@ function submit(){
     	modal.style.display = "block";
     }else{
 	    confirmed = false;
-	    span.innerHTML = "&#10004"
-	    modal_message.innerHTML = "Submitted!"
-	    modal.style.display = "block"
+	    span.innerHTML = "&#10004";
+	    modal_message.innerHTML = "Submitted!";
+	    modal.style.display = "block";
+	    //,details[0].innerHTML,stn.innerHTML
+	    let ret = await eel.send_sms(a1,a2,a3,d1,d2,d3,stn.innerHTML)();
 	    setTimeout(()=>{
 		    modal.style.display = "none";
 	    },3000);
     }
-
-    
-    console.log(a1,a2,a3,details[0].innerHTML,stn.innerHTML)
+    	    
 }
 
 function incrementSelectionCounter(counter){
@@ -318,15 +321,6 @@ function getKeyPressed(key){
     }
 }
 
-
-
-// Get the modal
-
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
 
 // When the user clicks on <span> (x), close the modal
 function hide_modal() {
